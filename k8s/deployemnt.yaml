@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: depi-grad
+spec:
+  replica: 3
+  selector:
+    matchLabels:
+        env: prod
+  template:
+    metadata:
+      name: deploy-image
+      labels:
+        env: prod
+    spec:
+      containers:
+        - name: depi-prodpods
+          image: enabdelhamed/depi-front:v1
